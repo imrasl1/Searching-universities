@@ -1,0 +1,38 @@
+<div class="container">
+    <div class="mainovski">
+        <h1>Universities</h1>
+        <p> Choose a country </p>
+          <select class="combobox" [(ngModel)] ="countryName">
+              <option selected hidden> Select country </option>
+              <option *ngFor="let item of resultCountries">
+                  <span>
+                      {{item.name.common}}
+                  </span>
+              </option>
+          </select>
+        <button (click)="onClick()"> Submit </button>
+        <input class="poisk" type="text" placeholder="Enter university name" [(ngModel)] = "searchText" *ngIf=knopka>
+    </div>
+    <div class="card-wrapper">
+        <div class="ag-format-container" *ngFor="let item of resultUniversities">
+            <div class="ag-courses_box">
+              <div class="ag-courses_item">
+                <a href={{item.web_pages}} target="_blank" class="ag-courses-item_link">
+                  <div class="ag-courses-item_bg"></div>
+                  <div class="ag-courses-item_title">
+                    {{item.name}}
+                  </div>
+                  <div class="ag-courses-item_date-box">
+                    <span class="ag-courses-item_date">
+                       <a> {{item.web_pages}} </a>
+                    </span>
+                  </div>
+                </a>
+              </div>
+            </div>
+        <!-- <div class="card" *ngFor="let item of resultUniversities">
+            <p> {{item.name}} </p>
+            <p> <a href={{item.web_pages}} target="_blank"> {{item.web_pages}} </a></p>
+        </div> -->
+    </div>
+</div>
